@@ -21,11 +21,12 @@ export const Login = () => {
               id="email"
               type="email"
               placeholder="Ingresa tu email"
+              autoComplete="on"
             />
           </div>
           <div className="my-5">
             <label
-              htmlFor="email"
+              htmlFor="password"
               className="uppercase text-gray-600 font-bold block text-xl"
             >
               Password
@@ -35,6 +36,7 @@ export const Login = () => {
               id="password"
               type="password"
               placeholder="Ingresa tu password"
+              autoComplete="on"
             />
           </div>
 

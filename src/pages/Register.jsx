@@ -21,6 +21,7 @@ export const Register = () => {
               id="nombre"
               type="text"
               placeholder="Ingresa tu nombre"
+              autoComplete="on"
             />
           </div>
 
@@ -36,6 +37,7 @@ export const Register = () => {
               id="email"
               type="email"
               placeholder="Ingresa tu email"
+              autoComplete="on"
             />
           </div>
 
@@ -51,6 +53,7 @@ export const Register = () => {
               id="password"
               type="password"
               placeholder="Ingresa tu password"
+              autoComplete="on"
             />
           </div>
 
@@ -66,6 +69,7 @@ export const Register = () => {
               id="password2"
               type="password"
               placeholder="Repite tu password"
+              autoComplete="on"
             />
           </div>
 

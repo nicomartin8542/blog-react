@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "animate.css";
 
 const linkMenu =
-  "block mt-4 lg:inline-block lg:mt-0 text-teal-800  mr-4 border-b-2 border-gray-100  hover:border-b-2  hover:text-teal-500 hover:border-teal-600 transition ease-in-out duration-500";
+  "mt-4 inline-block lg:mt-0 text-sky-800  mr-4 border-b-2 border-gray-100  hover:border-b-2  hover:text-sky-500 hover:border-sky-600 transition ease-in-out duration-500";
 const botonMenu =
-  "inline-block text-md px-4 py-3 leading-none border rounded-md text-teal-800 hover:cursor-pointer border-teal-800 hover:border-transparent hover:text-white transition ease-in-out duration-700 hover:bg-teal-800 mt-3 mr-3 lg:mt-0";
+  "inline-block text-md px-4 py-3 leading-none border rounded-md text-sky-800 hover:cursor-pointer border-sky-800 hover:border-transparent hover:text-white transition ease-in-out duration-700 hover:bg-sky-800 mt-3 mr-3 lg:mt-0";
 
 export const Navbar = () => {
-  const [menuHidden, setMenuHidden] = useState("hidden");
+  const [menuAnimation, setMenuAnimation] = useState("hidden");
 
   const handleClick = () => {
-    menuHidden.length > 0 ? setMenuHidden("") : setMenuHidden("hidden");
+    if (menuAnimation === "hidden") {
+      setMenuAnimation("");
+    } else {
+      setMenuAnimation("hidden");
+    }
   };
 
   return (
     <>
-      <nav className="flex items-center justify-between text-center  lg:text-right  flex-wrap bg-gray-100 p-6 ">
-        <div className="flex items- flex-shrink-0 text-white mr-6">
+      <nav
+        className={`flex items-center justify-between text-center  lg:text-right  flex-wrap bg-gray-100 p-6`}
+      >
+        <div className="flex flex-shrink-0 text-white mr-6">
           <img
             src="public/logo.svg"
             className="fill-current h-8 w-8 mr-2"
@@ -25,7 +32,7 @@ export const Navbar = () => {
             alt=""
           />
 
-          <span className="font-semibold text-xl text-teal-800 tracking-tight">
+          <span className="font-semibold text-xl text-sky-800 tracking-tight">
             Blog-Rocio
           </span>
         </div>
@@ -33,7 +40,7 @@ export const Navbar = () => {
         <div className="block lg:hidden">
           <button
             id="boton"
-            className="flex items-center px-3 py-2 border rounded text-teal-800 border-teal-800 hover:text-teal-500 hover:border-teal-500"
+            className="flex items-center px-3 py-2 border rounded text-sky-800 border-sky-800 hover:text-sky-500 hover:border-sky-500"
             onClick={() => handleClick()}
           >
             <svg
@@ -49,24 +56,29 @@ export const Navbar = () => {
 
         <div
           id="menu"
-          className={`w-full flex-grow lg:flex lg:items-center lg:w-auto ${menuHidden} `}
+          className={`w-full ${menuAnimation}  transition-2 flex-grow lg:flex lg:items-center lg:w-auto   `}
         >
-          <div className="text-md lg:flex-grow lg:mr-5 ">
-            <Link to="/" className={linkMenu}>
-              Home
-            </Link>
-            <Link to="/posts-user" className={linkMenu}>
-              Mis Articulos
-            </Link>
-            <Link to="/about" className={linkMenu}>
-              About
-            </Link>
-          </div>
-          <div>
-            <Link to="/login" className={botonMenu}>
-              Sign In
-            </Link>
-          </div>
+          <ul className="flex justify-center flex-col w-1/3 mx-auto text-md lg:flex-grow lg:flex-row lg:justify-end lg:mr-5">
+            <li>
+              <Link to="/" className={linkMenu}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/posts-user" className={linkMenu}>
+                Mis Articulos
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className={linkMenu}>
+                About
+              </Link>
+            </li>
+          </ul>
+
+          <Link to="/login" className={botonMenu}>
+            Sign In
+          </Link>
         </div>
       </nav>
     </>
