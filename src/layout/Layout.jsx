@@ -1,18 +1,19 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 
 export const Layout = () => {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <div className="container mx-auto mt-5">
+        <Header />
 
-      {/* <main>
-        <Outlet />
-      </main> */}
+        <main className="h-screen">
+          <Outlet />
+        </main>
+      </div>
 
-      {/* <footer>Footer</footer> */}
+      <Footer />
     </>
   );
 };

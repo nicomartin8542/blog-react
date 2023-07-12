@@ -6,6 +6,8 @@ import "./index.css";
 import { Login } from "./pages/Login.jsx";
 import { Register } from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
+import { MyPosts } from "./pages/MyPosts.jsx";
+import About from "./pages/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/posts-user",
+        element: <MyPosts />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
